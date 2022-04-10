@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase.init.js";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -22,27 +23,34 @@ const SignUp = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const auth = getAuth();
+    try {
+      const auth = getAuth();
 
-    const userCredential = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-    console.log(formData.email);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      console.log(formData.email);
 
-    const user = userCredential.user;
+      const user = userCredential.user;
 
-    updateProfile(auth.currentUser, {
-      displayName: name,
-    });
+      updateProfile(auth.currentUser, {
+        displayName: name,
+      });
 
-    delete formData.password;
-    formData.timestamp = serverTimestamp();
+      delete formData.password;
+      formData.timestamp = serverTimestamp();
 
-    await setDoc(doc(db, "users", user.uid), formData);
+      await setDoc(doc(db, "users", user.uid), formData);
 
-    navigate("/");
+      navigate("/");
+    } catch (error) {
+      toast.error("Bad Credentials");
+    }
+    setEmail("");
+    setPassword("");
+    setName("");
   };
   return (
     <>

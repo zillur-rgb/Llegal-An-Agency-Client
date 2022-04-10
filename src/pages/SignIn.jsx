@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 import visibility from "../assets/svg/visibilityIcon.svg";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { toast } from "react-toastify";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,8 +22,10 @@ const SignIn = () => {
       if (userCred.user) {
         navigate("/");
       }
+      setEmail("");
+      setPassword("");
     } catch (error) {
-      console.error(error.message);
+      toast.error("Error User Credentials");
     }
   };
   return (
