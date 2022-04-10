@@ -2,6 +2,13 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 import visibility from "../assets/svg/visibilityIcon.svg";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../firebase.init.js";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -11,7 +18,32 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
-  const onChange = () => {};
+  const formData = { email, password, name };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const auth = getAuth();
+
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    console.log(formData.email);
+
+    const user = userCredential.user;
+
+    updateProfile(auth.currentUser, {
+      displayName: name,
+    });
+
+    delete formData.password;
+    formData.timestamp = serverTimestamp();
+
+    await setDoc(doc(db, "users", user.uid), formData);
+
+    navigate("/");
+  };
   return (
     <>
       <div className="pageContainer">
@@ -19,7 +51,7 @@ const SignUp = () => {
           <p className="pageHeader">Welcome Back</p>
         </header>
 
-        <form>
+        <form onSubmit={onSubmit}>
           <input
             type="text"
             name="name"
