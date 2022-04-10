@@ -1,25 +1,38 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
-import { getAuth } from "firebase/auth";
-import SignIn from "./SignIn";
-import { useNavigate } from "react-router-dom";
+import { getAuth, updateProfile } from "firebase/auth";
+import { updateDoc, doc } from "firebase/firestore";
+import { db } from "../firebase.init";
+import { useNavigate, Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Profile = () => {
   const auth = getAuth();
 
-  const [formData, setFormData] = useState({
-    name: auth.currentUser.displayName,
-    email: auth.currentUser.email,
-  });
+  const [changeData, setChangeData] = useState(false);
 
-  console.log(formData.name);
-  console.log(formData.email);
+  const [email, setEmail] = useState(auth.currentUser.email);
+  const [name, setName] = useState(auth.currentUser.displayName);
 
   const navigate = useNavigate();
 
   const handleSignOut = () => {
     auth.signOut();
     navigate("/");
+  };
+
+  const handleNameChange = async () => {
+    try {
+      if (auth.currentUser.displayName !== name) {
+        await updateProfile(auth.currentUser, {
+          displayName: name,
+        });
+
+        //Update in Firestore
+        await updateDoc(doc(db, "users", auth.currentUser.uid), { name });
+      }
+    } catch (error) {
+      toast.error("could not update profile details");
+    }
   };
 
   return (
@@ -30,6 +43,49 @@ const Profile = () => {
           Logout
         </button>
       </header>
+
+      <main>
+        <div className="profileDetailsHeader">
+          <p className="profileDetailsText">Personal Profile</p>
+          <p
+            className="changePersonalDetails"
+            onClick={() => {
+              changeData && handleNameChange();
+              setChangeData(!changeData);
+            }}
+          >
+            {changeData ? "done" : "change"}
+          </p>
+        </div>
+
+        <div>
+          <form onSubmit={handleNameChange}>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              value={name}
+              className={!changeData ? "profileName" : "profileNameActive"}
+              disabled={!changeData}
+              onChange={({ target }) => {
+                setName(target.value);
+              }}
+            />
+
+            <input
+              type="email"
+              name="email"
+              id="email"
+              className={!changeData ? "profileEmail" : "profileEmailActive"}
+              disabled={!changeData}
+              value={email}
+              onChange={({ target }) => {
+                setEmail(target.value);
+              }}
+            />
+          </form>
+        </div>
+      </main>
     </div>
   );
 };
