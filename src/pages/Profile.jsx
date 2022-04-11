@@ -76,12 +76,9 @@ const Profile = () => {
               type="email"
               name="email"
               id="email"
-              className={!changeData ? "profileEmail" : "profileEmailActive"}
-              disabled={!changeData}
+              className="profileEmail"
+              disabled={true}
               value={email}
-              onChange={({ target }) => {
-                setEmail(target.value);
-              }}
             />
           </form>
         </div>
