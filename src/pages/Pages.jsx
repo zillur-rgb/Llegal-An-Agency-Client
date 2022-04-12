@@ -6,6 +6,7 @@ import SignUp from "./SignUp";
 import ForgotPassword from "./ForgotPassword";
 import Profile from "./Profile";
 import Offers from "./Offers";
+import Category from "../pages/Category";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 
 const Pages = () => {
@@ -14,6 +15,7 @@ const Pages = () => {
       <Routes>
         <Route path="/" element={<Explore />} />
         <Route path="/offers" element={<Offers />} />
+        <Route path="/category/:categoryName" element={<Category />} />
         <Route path="/profile" element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
         </Route>
