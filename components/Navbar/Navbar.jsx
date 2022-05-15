@@ -1,46 +1,18 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import { RiMenuLine } from "react-icons/ri";
+import { useState } from "react";
+import MenuToggle from "./MenuToggle";
+import NavLinks from "./NavLinks";
 
 const Navbar = () => {
+  const [clicked, setClicked] = useState(false);
+
+  const handleSetClick = () => setClicked(!clicked);
   return (
-    <Flex justify="space-between" my={5} align="center" w="100%">
+    <Flex justify="space-between" my={5} w="100%">
       <Heading>Llegal</Heading>
-      <Flex alignItems="center">
-        <Link href="/home">
-          <a>
-            <Text mx={2} px={2} fontWeight="medium">
-              Home
-            </Text>
-          </a>
-        </Link>
-        <Link href="/product">
-          <a>
-            <Text mx={2} px={2} fontWeight="medium">
-              product
-            </Text>
-          </a>
-        </Link>
-        <Link href="/pricing">
-          <a>
-            <Text mx={2} px={2} fontWeight="medium">
-              pricing
-            </Text>
-          </a>
-        </Link>
-        <Link href="/contact">
-          <a>
-            <Text mr={4} mx={2} px={2} fontWeight="medium">
-              contact
-            </Text>
-          </a>
-        </Link>
-        <RiMenuLine
-          display={["hidden", "block"]}
-          fontSize={28}
-          fontWeight="medium"
-        />
-      </Flex>
+      <NavLinks handleSetClick={handleSetClick} clicked={clicked} />
+      <MenuToggle handleSetClick={handleSetClick} clicked={clicked} />
     </Flex>
   );
 };
