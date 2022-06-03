@@ -1,0 +1,21 @@
+@import "./variables.scss";
+.nav-container {
+  margin: 0 12%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+}
+
+ul li.menu {
+  list-style: none;
+  padding: 0 12px;
+}
+
+h1.logo {
+  @include blue-text(24px);
+}

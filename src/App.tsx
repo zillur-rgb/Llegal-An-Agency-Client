@@ -1,11 +1,12 @@
 import { ToastContainer } from "react-toastify";
-import "../src/styles/app.module.scss";
+import "../src/styles/app.scss";
+import Navbar from "./Components/Navbar/Navbar";
 function App() {
   return (
-    <>
-      <h1>Hello World</h1>
+    <div className="container">
+      <Navbar />
       <ToastContainer />
-    </>
+    </div>
   );
 }
 
