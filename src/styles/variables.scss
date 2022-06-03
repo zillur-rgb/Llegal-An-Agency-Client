@@ -1,0 +1,20 @@
+$header-text: #252b42;
+$normal-text: #737373;
+
+@mixin blue-text($fs) {
+  font-family: "Martel";
+  font-size: $fs;
+  line-height: $fs * 1.5;
+  font-weight: 700;
+  color: $header-text;
+  letter-spacing: 0.1rem;
+}
+
+@mixin para-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: $normal-text;
+  letter-spacing: 0.2rem;
+}

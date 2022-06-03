@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 h1 {
-  color: blueviolet;
+  @include blue-text(16px);
 }
