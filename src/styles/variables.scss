@@ -1,6 +1,15 @@
 $header-text: #252b42;
+$header-font: "Martel";
 $normal-text: #737373;
+$normal-font: "Montserrat", sans-serif;
 $white: #fafafa;
+$gold: #dbb468;
+
+// Screen size
+$xl: 1170px;
+$lg: 990px;
+$md: 768px;
+$sm: 576px;
 
 @mixin blue-text($fs) {
   font-family: "Martel";
@@ -8,14 +17,24 @@ $white: #fafafa;
   line-height: $fs * 1.5;
   font-weight: 700;
   color: $header-text;
-  letter-spacing: 0.1rem;
+  letter-spacing: 1px;
 }
 
-@mixin para-text {
+@mixin para-text($fs) {
   font-family: "Montserrat", sans-serif;
-  font-size: 14px;
+  font-size: $fs;
   font-weight: 400;
-  line-height: 20px;
+  line-height: $fs * 1.5;
   color: $normal-text;
-  letter-spacing: 0.2rem;
+  letter-spacing: 1px;
+}
+
+@mixin button($bg, $tc) {
+  padding: 10px 25px;
+  background-color: $bg;
+  border: 1px solid $gold;
+  color: $tc;
+  font-size: 14px;
+  font-family: $normal-font;
+  font-weight: 700;
 }

@@ -1,0 +1,65 @@
+@import "./variables.scss";
+
+.hero-container {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $white;
+  padding: 0 30%;
+  text-align: center;
+
+  h1 {
+    @include blue-text(58px);
+    font-weight: 900;
+    margin-bottom: 30px;
+  }
+
+  p {
+    @include para-text(20px);
+    font-weight: 500;
+    padding: 0 10%;
+    margin-bottom: 30px;
+  }
+
+  .button-control {
+    display: flex;
+    .pricing {
+      button {
+        @include button($gold, $white);
+        cursor: pointer;
+        margin: 10px;
+        &:hover {
+          background-color: $white;
+          color: $gold;
+        }
+      }
+    }
+
+    .about {
+      button {
+        @include button(#fff, $gold);
+        cursor: pointer;
+        margin: 10px;
+        &:hover {
+          background-color: $gold;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $xl) {
+    padding: 0 10%;
+  }
+  @media screen and (max-width: $md) {
+    .button-control {
+      flex-direction: column;
+    }
+    padding: 0 5%;
+    h1 {
+      @include blue-text(32px);
+    }
+  }
+}

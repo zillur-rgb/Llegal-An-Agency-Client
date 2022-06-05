@@ -4,7 +4,7 @@ import "../../styles/navbar.scss";
 import { useState } from "react";
 
 const Navbar = () => {
-  const [showMenu, setShowMenu] = useState<boolean>(true);
+  const [showMenu, setShowMenu] = useState<boolean>(false);
   const menus: MenuTypes[] = [
     {
       name: "Home",
