@@ -1,0 +1,39 @@
+@import "./variables.scss";
+.services-container {
+  padding: 0 15%;
+  h1 {
+    @include blue-text(40px);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  p.service-name {
+    @include blue-text(14px);
+  }
+  p {
+    @include para-text(14px);
+    &.subHead {
+      padding: 0 30%;
+      text-align: center;
+    }
+  }
+  .single-service {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    grid-gap: 30px;
+    margin: 45px 0;
+  }
+}
+
+.service-container {
+  border: 1px solid rgba($color: $normal-text, $alpha: 0.3);
+  padding: 35px 60px;
+  img {
+    width: 40px;
+  }
+  .head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 15px;
+  }
+}
