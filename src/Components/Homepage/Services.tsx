@@ -56,8 +56,8 @@ const Services = () => {
         Classical physics: Newtonian mechanics
       </p>
       <div className="single-service">
-        {services.map((service) => (
-          <Service service={service} />
+        {services.map((service, idx) => (
+          <Service key={idx} service={service} />
         ))}
       </div>
     </div>

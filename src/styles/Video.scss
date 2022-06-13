@@ -1,0 +1,21 @@
+@import "./variables.scss";
+
+.video-container {
+  padding: 0 25%;
+  margin-top: 80px;
+  text-align: center;
+  h1 {
+    @include blue-text(40px);
+  }
+  p {
+    @include para-text(14px);
+  }
+  video {
+    margin-top: 50px;
+  }
+}
+.bg {
+  height: 250px;
+  background-color: $header-text;
+  margin-top: -200px;
+}
