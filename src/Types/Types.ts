@@ -16,3 +16,12 @@ export interface serviceProps {
     texts: string;
   };
 }
+
+export interface testimonialType {
+  id: number;
+  ratings: number;
+  name: string;
+  profession: string;
+  img: string;
+  desc: string;
+}
