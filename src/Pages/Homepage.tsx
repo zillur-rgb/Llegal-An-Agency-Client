@@ -1,5 +1,5 @@
-import React from "react";
 import Hero from "../Components/Homepage/Hero";
+import MeetUs from "../Components/Homepage/MeetUs";
 import Services from "../Components/Homepage/Services";
 import Testimonials from "../Components/Homepage/Testimonials";
 import Video from "../Components/Homepage/Video";
@@ -11,6 +11,7 @@ const Homepage = () => {
       <Services />
       <Video />
       <Testimonials />
+      <MeetUs />
     </div>
   );
 };

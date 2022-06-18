@@ -25,3 +25,10 @@ export interface testimonialType {
   img: string;
   desc: string;
 }
+
+export interface teams {
+  id: number;
+  img: string;
+  name: string;
+  title: string;
+}
