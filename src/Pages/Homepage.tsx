@@ -1,3 +1,4 @@
+import Footer from "../Components/Footer/Footer";
 import Hero from "../Components/Homepage/Hero";
 import MeetUs from "../Components/Homepage/MeetUs";
 import Services from "../Components/Homepage/Services";
@@ -12,6 +13,7 @@ const Homepage = () => {
       <Video />
       <Testimonials />
       <MeetUs />
+      <Footer />
     </div>
   );
 };

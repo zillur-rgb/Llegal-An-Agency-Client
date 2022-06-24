@@ -36,7 +36,7 @@ const MeetUs = () => {
 
       <section className="testimonials">
         {ourTeam.map((team) => (
-          <div key={team.id}>
+          <div key={team.id} className="card">
             <img src={team.img} alt={team.img} />
             <h1>{team.name}</h1>
             <p>{team.title}</p>
