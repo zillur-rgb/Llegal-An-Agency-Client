@@ -3,6 +3,10 @@
   max-width: 100vw;
   margin: 0 15%;
   margin-top: 80px;
+  i {
+    font-size: 36px;
+    color: $header-text;
+  }
   h1 {
     @include blue-text(40px);
     text-align: center;
@@ -10,6 +14,7 @@
   }
   p.service-name {
     @include blue-text(14px);
+    text-transform: capitalize;
   }
   p {
     @include para-text(14px);
@@ -23,6 +28,20 @@
     grid-template-columns: repeat(3, minmax(250px, 1fr));
     grid-gap: 30px;
     margin: 45px 0;
+
+    .service-container {
+      position: relative;
+    }
+
+    button {
+      @include button($header-text, $white);
+      // position: absolute;
+      margin-top: 20px;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
 
   @media screen and (max-width: 1024px) {

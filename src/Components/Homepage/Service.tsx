@@ -6,10 +6,11 @@ const Service = ({ service }: serviceProps) => {
   return (
     <div className="service-container">
       <div className="head">
-        <img src={img} alt="serviceimg" />
+        <i className={`ri-${img}`}></i>
         <p className="service-name">{name}</p>
       </div>
       <p>{texts}</p>
+      <button>Book an Appointment</button>
     </div>
   );
 };

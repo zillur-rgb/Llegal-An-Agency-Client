@@ -13,7 +13,6 @@ const Homepage = () => {
       <Video />
       <Testimonials />
       <MeetUs />
-      <Footer />
     </div>
   );
 };
