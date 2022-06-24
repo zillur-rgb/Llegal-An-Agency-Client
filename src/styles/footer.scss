@@ -1,21 +1,147 @@
 @import "./variables.scss";
 
 .footer-container {
-  padding: 0 15%;
-  section.internship {
-    background-color: #fff;
-    margin: 40px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    div {
-      &.left {
-        h1 {
-          @include blue-text(24px);
+  max-width: 100vw;
+  section {
+    &.internship {
+      padding: 0 15%;
+      background-color: #fff;
+      margin: 40px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      div {
+        &.left {
+          h1 {
+            @include blue-text(24px);
+          }
+
+          p {
+            @include para-text(14px);
+          }
         }
 
+        &.right {
+          button {
+            @include button($gold, $white);
+          }
+        }
+      }
+    }
+
+    &.footer {
+      background-color: $header-text;
+      padding: 0 15%;
+
+      .head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 50px 0;
+        color: #fff;
+        font-size: 1.5rem;
+        .logo {
+          cursor: pointer;
+          font-weight: 700;
+        }
+        .social {
+          i {
+            margin: 0 5px;
+            cursor: pointer;
+            &:hover {
+              opacity: 70%;
+            }
+          }
+        }
+      }
+
+      .border {
+        height: 1px;
+        width: 100%;
+        background-color: rgba($color: #ccc, $alpha: 0.2);
+      }
+
+      .content {
+        display: flex;
+        justify-content: space-between;
+        margin: 70px 0;
+
+        .info {
+          h5 {
+            @include blue-text(16px);
+            color: #fff;
+            margin-bottom: 20px;
+          }
+          p {
+            @include para-text(14px);
+            margin: 10px 0;
+          }
+        }
+
+        .subscription {
+          h5 {
+            @include blue-text(16px);
+            color: #fff;
+            margin-bottom: 20px;
+          }
+
+          .form {
+            input {
+              padding: 15px 10px;
+              outline: none;
+              border: none;
+              font-size: 1rem;
+            }
+
+            button {
+              padding: 30px 10px;
+              @include button($gold, #fff);
+              cursor: pointer;
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+
+      .footer {
         p {
-          @include para-text(14px);
+          @include para-text(1rem);
+          text-align: center;
+          padding: 20px 0;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    section {
+      &.internship,
+      &.footer {
+        padding: 0 10%;
+        flex-wrap: wrap;
+        .content {
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    section {
+      &.internship,
+      &.footer {
+        padding: 0 5%;
+        .content {
+          flex-wrap: wrap;
+          .subscription {
+            display: none;
+          }
+
+          .subscription {
+            display: none;
+          }
         }
       }
     }

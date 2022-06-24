@@ -27,6 +27,7 @@ const Footer = () => {
             <i className="ri-instagram-fill"></i>
           </div>
         </div>
+        <div className="border"></div>
         <div className="content">
           <div className="info">
             <h5>Company Info</h5>

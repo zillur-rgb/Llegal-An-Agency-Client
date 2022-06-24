@@ -30,7 +30,7 @@ $sm: 576px;
 }
 
 @mixin button($bg, $tc) {
-  padding: 10px 25px;
+  padding: 15px 25px;
   background-color: $bg;
   border: 1px solid $gold;
   color: $tc;
