@@ -27,8 +27,8 @@ const Navbar = () => {
       url: "/lawyers",
     },
     {
-      name: "Contact",
-      url: "/contact",
+      name: "SignIn",
+      url: "/signin",
     },
   ];
   return (

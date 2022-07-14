@@ -1,0 +1,8 @@
+@import "./variables.scss";
+
+button {
+  @include button($white, $header-text);
+  &:hover {
+    @include button($header-text, $white);
+  }
+}

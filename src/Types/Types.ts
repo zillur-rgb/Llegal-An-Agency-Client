@@ -1,3 +1,5 @@
+import { MouseEventHandler } from "react";
+
 export interface MenuTypes {
   name: string;
   url: string;
@@ -31,4 +33,9 @@ export interface teams {
   img: string;
   name: string;
   title: string;
+}
+
+export interface buttonType {
+  title: string;
+  onClick: MouseEventHandler<HTMLButtonElement>;
 }
